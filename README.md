@@ -11,7 +11,7 @@ Extensive experiments demonstrate its strong performance on various vision tasks
 
 ### Results
 
-|Model|Input-size|Params|FLOPs|acc|
+|Model|Input-size|Params|FLOPs|Acc|
 |:---:|:---:|:---:|:---:|:---:|
 |SViT-S|224x224|25M|4.4G|83.6%|
 |SViT-S|384x384|25M|14.1G|85.0%|
