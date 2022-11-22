@@ -1,5 +1,5 @@
 # SViT
-This is the project for **Vision Transformer with Super Token Sampling**.
+This is the project for ["Vision Transformer with Super Token Sampling"](https://arxiv.org/abs/2211.11167).
 
 Code will be released soon.
 
