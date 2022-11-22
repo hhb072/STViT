@@ -9,7 +9,7 @@ Extensive experiments demonstrate its strong performance on various vision tasks
 
 ![model](images/network.png)
 
-## Results
+### Results
 
 |Model|Input-size|Params|FLOPs|acc|
 |:---:|:---:|:---:|:---:|:---:|
@@ -20,7 +20,7 @@ Extensive experiments demonstrate its strong performance on various vision tasks
 |SViT-L|224x224|95M|15.6G|85.3%|
 |SViT-L|384x384|95M|49.7G|86.4%|
 
-## Citation
+### Citation
 	 @article{huang2022svit,
 	   title={Vision Transformer with Super Token Sampling},
 	   author={Huang, Huaibo and Zhou, Xiaoqiang and Cao, Jie and He, Ran and Tan, Tieniu},
