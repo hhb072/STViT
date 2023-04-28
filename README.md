@@ -9,6 +9,10 @@ Extensive experiments demonstrate its strong performance on various vision tasks
 
 ![model](images/network.png)
 
+### Code
+
+The pretrained weights will be released soon.
+
 ### Results
 
 |Model|Input-size|Params|FLOPs|Acc|
