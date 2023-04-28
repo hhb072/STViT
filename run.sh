@@ -1,0 +1,1 @@
+python -m torch.distributed.launch --nproc_per_node=8 --use_env --master_port 29555 main.py --model stvit_small  --data-path YOURPATH/imagenet/ILSVRC2015/Data/CLS-LOC  --batch-size 128  --drop-path 0.3 --epoch 300 --dist-eval  --output_dir ckpt  2>&1 | tee -a log.txt
