@@ -1,4 +1,4 @@
-# Vision Transformer with Super Token Sampling
+# Vision Transformer with Super Token Sampling (CVPR 2023)
 
 [[arxiv](https://arxiv.org/abs/2211.11167)]
 
@@ -25,7 +25,7 @@ The pretrained weights will be released soon.
 |SViT-L|384x384|95M|49.7G|86.4%|
 
 ### Citation
-	 @article{huang2022svit,
+	 @article{huang2022stvit,
 	   title={Vision Transformer with Super Token Sampling},
 	   author={Huang, Huaibo and Zhou, Xiaoqiang and Cao, Jie and He, Ran and Tan, Tieniu},
 	   journal={arXiv:2211.11167},   
