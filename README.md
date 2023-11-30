@@ -9,9 +9,65 @@ Extensive experiments demonstrate its strong performance on various vision tasks
 
 ![model](images/network.png)
 
-### Code
+ ### Test
 
-The pretrained weights will be released soon.
+The pretrained weights can be downloaded from [Google Driver](https://drive.google.com/drive/folders/1uaT5OarQd9iPrnFufHocHpM3zhyTcetB?usp=sharing).
+
+ Test  STViT-small with 224*224 input-size:
+
+	python -m torch.distributed.launch --nproc_per_node=8 --use_env --master_port 29556 main.py --model stvit_small --data-path IMAGENETPATH  --batch-size 128 --eval --resume ckpt/stvit-small-224.pth --dist-eval  --output_dir ckpt --input-size 224  2>&1 | tee -a log.txt
+
+  Test  STViT-small with 384*384 input-size:
+
+	python -m torch.distributed.launch --nproc_per_node=8 --use_env --master_port 29556 main.py --model stvit_small --data-path IMAGENETPATH  --batch-size 128 --eval --resume ckpt/stvit-small-384.pth --dist-eval  --output_dir ckpt --input-size 384  2>&1 | tee -a log.txt
+
+ Test  STViT-base with 224*224 input-size:
+
+	python -m torch.distributed.launch --nproc_per_node=8 --use_env --master_port 29556 main.py --model stvit_base --data-path IMAGENETPATH  --batch-size 128 --eval --resume ckpt/stvit-base-224.pth --dist-eval  --output_dir ckpt --input-size 224  2>&1 | tee -a log.txt
+
+  Test  STViT-base with 384*384 input-size:
+
+	python -m torch.distributed.launch --nproc_per_node=8 --use_env --master_port 29556 main.py --model stvit_base --data-path IMAGENETPATH  --batch-size 128 --eval --resume ckpt/stvit-base-384.pth --dist-eval  --output_dir ckpt --input-size 384  2>&1 | tee -a log.txt
+
+  Test  STViT-large with 224*224 input-size:
+
+	python -m torch.distributed.launch --nproc_per_node=8 --use_env --master_port 29556 main.py --model stvit_large --data-path IMAGENETPATH  --batch-size 128 --eval --resume ckpt/stvit-large-224.pth --dist-eval  --output_dir ckpt --input-size 224  2>&1 | tee -a log.txt
+
+   Test  STViT-large with 384*384 input-size:
+
+	python -m torch.distributed.launch --nproc_per_node=8 --use_env --master_port 29556 main.py --model stvit_large --data-path IMAGENETPATH  --batch-size 128 --eval --resume ckpt/stvit-large-384.pth --dist-eval  --output_dir ckpt --input-size 384  2>&1 | tee -a log.txt
+
+### Training and Finetuning
+
+
+
+Training  STViT-small with 224*224 input-size:
+
+	python -m torch.distributed.launch --nproc_per_node=8 --use_env --master_port 29556 main.py --model stvit_small --data-path IMAGENETPATH  --batch-size 128  --drop-path 0.1 --epoch 300 --dist-eval  --output_dir ckpt --input-size 224  2>&1 | tee -a log.txt
+
+Finetuning STViT-small with 384*384 input-size:
+
+	python -m torch.distributed.launch --nproc_per_node=8 --use_env --master_port 29555 main.py  --data-path IMAGENETPATH  --batch-size 64  --drop-path 0.1 --epoch 30  --finetune ckpt/stvit-small-224.pth  --lr 5e-6 --min-lr 5e-6  --warmup-epochs 0 --weight-decay 1e-8  --input-size 384  --dist-eval  --output_dir ckpt384 2>&1 | tee -a train384.txt
+
+Training  STViT-base with 224*224 input-size:
+
+	python -m torch.distributed.launch --nproc_per_node=8 --use_env --master_port 29556 main.py --model stvit_base --data-path IMAGENETPATH  --batch-size 128  --drop-path 0.4 --epoch 300 --dist-eval  --output_dir ckpt --input-size 224  2>&1 | tee -a log.txt
+
+Finetuning STViT-base with 384*384 input-size:
+
+	python -m torch.distributed.launch --nproc_per_node=8 --use_env --master_port 29555 main.py  --model stvit_base --data-path IMAGENETPATH  --batch-size 64  --drop-path 0.4 --epoch 30  --finetune ckpt/stvit-base-224.pth  --lr 5e-6 --min-lr 5e-6  --warmup-epochs 0 --weight-decay 1e-8  --input-size 384  --dist-eval  --output_dir ckpt384 2>&1 | tee -a train384.txt
+
+ Training  STViT-large with 224*224 input-size (we find that setting drop-path to be 0.4 and 0.6 respectively for the first 260 epochs and last 40 epochs would obtain better results):
+
+	python -m torch.distributed.launch --nproc_per_node=8 --use_env --master_port 29556 main.py --model stvit_large --data-path IMAGENETPATH  --batch-size 128  --drop-path 0.6 --epoch 300 --dist-eval  --output_dir ckpt --input-size 224  2>&1 | tee -a log.txt
+
+Finetuning STViT-large with 384*384 input-size:
+
+	python -m torch.distributed.launch --nproc_per_node=8 --use_env --master_port 29555 main.py  --model stvit_large --data-path IMAGENETPATH  --batch-size 64  --drop-path 0.6 --epoch 30  --finetune ckpt/stvit-large-224.pth  --lr 5e-6 --min-lr 5e-6  --warmup-epochs 0 --weight-decay 1e-8  --input-size 384  --dist-eval  --output_dir ckpt384 2>&1 | tee -a train384.txt
+
+
+
+
 
 ### Results
 
