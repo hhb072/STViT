@@ -1,1 +1,4 @@
+Please run the following code for visualization of Super Token Attentions in Fig.~2:
+  python visualize.py
 
+The data paths should be changed according to your settings.
