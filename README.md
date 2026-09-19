@@ -1,4 +1,4 @@
-# Vision Transformer with Super Token Sampling (CVPR 2023)
+# Vision Transformer with Super Token Sampling 
 
 [[arxiv](https://arxiv.org/abs/2211.11167)]
 
